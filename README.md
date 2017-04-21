@@ -11,6 +11,7 @@ Works for Unity 5.6.0
 ###DOTween###
 Animation/Tween library.
 https://www.assetstore.unity3d.com/en/#!/content/27676
+
 * Demigiant/DOTween
 * Resources/DOTweenSettings
 
