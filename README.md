@@ -12,7 +12,7 @@ Works for Unity 5.6.0
 [ ] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the unwanted  
 [ ]   
 
-#### Before Uploading ####
+#### Before Final build ####
 [ ] Set final Company name in "Project Settings > Player Settings"  
 [ ] Set final Product name in "Project Settings > Player Settings"  
 [ ] Remove paid tools
