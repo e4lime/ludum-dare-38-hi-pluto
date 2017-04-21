@@ -13,7 +13,7 @@ Animation/Tween library.
 https://www.assetstore.unity3d.com/en/#!/content/27676
 
 * Demigiant/DOTween
-* Resources/DOTweenSettings
+* Resources/DOTweenSettings.asset
 
 ## How do I get set up? ##
 * Clone or fork it.
