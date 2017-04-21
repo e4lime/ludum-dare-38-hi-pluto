@@ -15,6 +15,7 @@ Works for Unity 5.6.0
 #### Before Uploading ####
 [ ] Set Final product name in "Project Settings > Player Settings"  
 [ ] Remove paid tools
+[ ] Remove placeholders
 ## Content ##
 
 ###DOTween###
