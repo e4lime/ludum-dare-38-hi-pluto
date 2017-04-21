@@ -44,23 +44,23 @@ Premade placeholders, must be removed and replaced before the last build.
 
 -----
 
-###Thirdparty Libraries and tools###
+##Thirdparty Libraries and tools##
 Resides in the Unity Project folder   
 "Userside" means stuff will only affect the user, like tools used in the editor. Game code won't be affected by these.
 "Free" the addon is free, license allows it to be public
 
-####DOTween####
+###DOTween###
 Animation/Tween library.  
-Free 
+Free   
 https://www.assetstore.unity3d.com/en/#!/content/27676  
 
 * Demigiant/DOTween
 * Resources/DOTweenSettings.asset
 
-####ProBuilder Basic####
+###ProBuilder Basic###
 3D Editor tool.  
 Userside  
-Free  
+Free   
 https://www.assetstore.unity3d.com/en/#!/content/11919
 
 * ProCore/ProBuilder
