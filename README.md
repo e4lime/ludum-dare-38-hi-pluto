@@ -6,13 +6,13 @@ Works for Unity 5.6.0
 
 ### IMPORTANT Checklist ###
 #### Beginning ####
-- [ ] Fork this project
-- [ ] Set Company name in "Project Settings > Player Settings" to team name
-- [ ] Set Product name in "Project Settings > Player Settings" to project name
-- [ ] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the other one
-- [ ] 
-- [ ] Set Final product name in "Project Settings > Player Settings"
-- [ ]
+[x] Fork this project
+[ ] Set Company name in "Project Settings > Player Settings" to team name
+[ ] Set Product name in "Project Settings > Player Settings" to project name
+[ ] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the other one
+[ ] 
+[ ] Set Final product name in "Project Settings > Player Settings"
+[ ]
 ## Content ##
 
 ###DOTween###
