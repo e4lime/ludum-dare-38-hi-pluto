@@ -1,0 +1,53 @@
+#based on:
+#https://github.com/github/gitignore/blob/master/Unity.gitignore
+#https://stackoverflow.com/questions/21573405/how-to-prepare-a-unity-project-for-git
+
+# =============== #
+# Unity generated #
+# =============== #
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+UnityVS.meta
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+*.tmp
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+#Unity + Visual Studio
+/Assets/UnityVS
+
+#Unity Projectsettings, so we dont accidently screw things up
+#/ProjectSettings/
+
+#ProBuilder
+/Assets/ProCore/
