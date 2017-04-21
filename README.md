@@ -23,6 +23,8 @@ Works for Unity 5.6.0
 [ ] Remove placeholders   
 [ ] Bake lightning 
 
+--------
+
 ## Content ##
 "Userside" means stuff will only affect the user, like tools used in the editor. Game code won't be affected by these.
 
@@ -60,6 +62,8 @@ Free
 https://www.assetstore.unity3d.com/en/#!/content/11919
 
 * ProCore/ProBuilder
+
+---------
 
 ## How do I get set up? ##
 * Clone or fork it.
