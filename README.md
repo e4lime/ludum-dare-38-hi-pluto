@@ -8,12 +8,13 @@ Works for Unity 5.6.0
 #### Beginning ####
 [x] Fork this project  
 [ ] Set Company name in "Project Settings > Player Settings" to team name  
-[ ] Set Product name in "Project Settings > Player Settings" to WIP project name  
+[ ] Set Product name in "Project Settings > Player Settings" to project name  
 [ ] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the other one  
 [ ]   
 
 #### Before Uploading ####
-[ ] Set Final product name in "Project Settings > Player Settings"  
+[ ] Set final Company name in "Project Settings > Player Settings"  
+[ ] Set final Product name in "Project Settings > Player Settings"  
 [ ] Remove paid tools
 [ ] Remove placeholders
 ## Content ##
