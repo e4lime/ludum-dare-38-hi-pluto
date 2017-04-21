@@ -17,6 +17,7 @@ Works for Unity 5.6.0
 [ ] Set final Product name in "Project Settings > Player Settings"  
 [ ] Remove paid tools
 [ ] Remove placeholders
+[ ] Bake lightning
 ## Content ##
 
 ###DOTween###
