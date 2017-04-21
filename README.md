@@ -42,6 +42,8 @@ Default template objects, copy them when creating new scripts, scenes etc
 ###Assets/Placeholders###
 Premade placeholders, must be removed and replaced before the last build.
 
+-----
+
 ###Thirdparty Libraries and tools###
 Resides in the Unity Project folder   
 "Userside" means stuff will only affect the user, like tools used in the editor. Game code won't be affected by these.
