@@ -2,7 +2,7 @@
 
 
 
-### Sumary ###
+## Sumary ##
 Project template with free tools & apis but without premade assets (except for placeholders). Ludum dare compo friendly.
 Works for Unity 5.6.0
 
