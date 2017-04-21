@@ -7,7 +7,7 @@ Works for Unity 5.6.0
 ### IMPORTANT Checklist ###
 
 ### Per User ###
-[ ] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation
+[ ] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation to override default C# script
 #### Beginning ####
 [x] Fork this project    
 [ ] Set Company name in "Project Settings > Player Settings" to team name   
