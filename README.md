@@ -1,4 +1,4 @@
-# Limes project template for gamejams #
+# Limes Unity project template for gamejams #
 
 
 
