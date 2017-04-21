@@ -13,11 +13,13 @@ Works for Unity 5.6.0
 [ ]   
 
 #### Before Final build ####
+[ ] Backup project
 [ ] Set final Company name in "Project Settings > Player Settings"  
 [ ] Set final Product name in "Project Settings > Player Settings"  
 [ ] Remove paid tools
 [ ] Remove placeholders
 [ ] Bake lightning
+
 ## Content ##
 
 ###DOTween###
