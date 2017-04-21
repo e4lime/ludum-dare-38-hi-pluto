@@ -5,6 +5,9 @@ Project template with free tools & apis but without premade assets (except for p
 Works for Unity 5.6.0
 
 ### IMPORTANT Checklist ###
+
+### Per User ###
+[ ] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation
 #### Beginning ####
 [x] Fork this project    
 [ ] Set Company name in "Project Settings > Player Settings" to team name   
@@ -18,7 +21,7 @@ Works for Unity 5.6.0
 [ ] Set final Product name in "Project Settings > Player Settings"    
 [ ] Remove paid tools   
 [ ] Remove placeholders   
-[ ] Bake lightning   
+[ ] Bake lightning 
 
 ## Content ##
 
