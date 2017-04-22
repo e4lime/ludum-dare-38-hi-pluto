@@ -55,7 +55,7 @@ great news! :D
 ### IMPORTANT Checklist ###
 
 ### Per User ###
-[ ] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation to override default C# script
+[x] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation to override default C# script
 #### Beginning ####
 [x] Fork this project    
 [x] Set Company name in "Project Settings > Player Settings" to team name   
