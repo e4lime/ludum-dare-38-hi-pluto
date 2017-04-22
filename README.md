@@ -1,8 +1,52 @@
-# Limes Unity project template for gamejams #
+# Hi pluto! #
+Ludum dare 38. Theme: "A Small World"
 
 ## Summary ##
-Project template with free tools & apis but without premade assets (except for placeholders). Ludum dare compo friendly.
-Works for Unity 5.6.0
+
+Jump game, similar to Rabbit jumping on stars (Winterbells).   
+Uses Unity 5.6.0.   
+
+### GDD ###
+
+#### Story
+Your best friend Pluto have been feeling down for a while cause he aint a planet no more :( 
+But there are rumours NASA will clasify Pluto as a planet again! Go visit your friend Pluto and bring him the 
+great news! :D
+
+##### Stuff/Legend
+[ ] Earth (Player)    
+[ ] Planets (Checkpoints)   
+	[ ] Earth    
+	[ ] Mars   
+	[ ] Jupiter   
+	[ ] Saturnus  
+	[ ] Uranus    
+	[ ] Neptunus   
+	[ ] Pluto   
+[ ] JumpObject (stars/astroids/comets or w/e)   
+[ ] Sounds    
+ [ ] Bumping on stars   
+ [ ] Falling down
+
+##### Mechanics
+[ ] World Earth autojumps on stars/astroids/comets etc (pick one)   
+[ ] Control earth with mousemovement (try keys later if it feels bad)   
+[ ] Gain 1 point for each JumpObject   
+[ ] Planets are checkpoints     
+[ ] Respawn on checkpoint    
+[ ] Screen scroll ups with planet, smooth    
+
+#####If time
+[ ] Planets
+	[ ] Sun
+	[ ] Mercury 
+	[ ] Venus
+	[ ] Astroidbelt (between mars and Jupiter)
+[ ] Keep falling until a planet saves you (instead of spawning at checkpoint)
+[ ] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)
+[ ] Something to avoid, like dangerous astroids
+[ ] Give planets personality
+[ ] music (Forgot to setup ableton with komplete, gonna take a while)
 
 ### IMPORTANT Checklist ###
 

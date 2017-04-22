@@ -13,43 +13,7 @@ great news! :D
 
 Jump game, similar to Rabbit jumping on stars (Winterbells)
 
-Stuff/Legend
-- Earth (Player)
-- Planets (Checkpoints)
-	- Earth 
-	- Mars
-	- Astroidbelt
-	- Jupiter
-	- Saturnus
-	- Uranus
-	- Neptunus
-	- Pluto
-- JumpObject (stars/astroids/comets or w/e)
-- Sounds 
- - Bumping on stars
- - Falling down
 
-Mechanics
-- World Earth autojumps on stars/astroids/comets etc (pick one)
-- Control earth with mousemovement (try keys later if it feels bad)
-- Gain 1 point for each JumpObject
-- Planets are checkpoints 
-- Respawn on checkpoint
-- Screen scroll ups with planet, smooth
-
-
-
-
-If time:
-- Planets
-	- Sun
-	- Mercury 
-	- Venus
-- Keep falling until a planet saves you (instead of spawning at checkpoint)
-- Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)
-- Something to avoid, like dangerous astroids
-- Give planets personality
-- music (Forgot to setup ableton with komplete, gonna take a while)
 
 
 
