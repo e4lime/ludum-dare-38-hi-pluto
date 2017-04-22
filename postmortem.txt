@@ -1,0 +1,13 @@
+NOTES FOR THE POSTMORTEM LATER
+
+The Good
+Took a walk while struggling with ideas
+
+
+
+The Bad
+3D. I need to get used to blender. Used alot of maya a few years ago 
+Havn't done anything in unity for a while, felt rusty.
+
+The ugly
+Too similar to winterbells 
