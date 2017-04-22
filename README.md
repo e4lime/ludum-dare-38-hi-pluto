@@ -6,6 +6,9 @@ Ludum dare 38. Theme: "A Small World"
 Jump game, similar to Rabbit jumping on stars (Winterbells).   
 Uses Unity 5.6.0.   
 
+![Alt text](skiss_1.png)
+
+
 ### GDD ###
 
 #### Story
