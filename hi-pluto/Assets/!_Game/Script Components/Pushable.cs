@@ -19,6 +19,8 @@ namespace Lime.LudumDare.HiPluto.Components {
 		[SerializeField]
 		private Ease m_Ease;
 
+		private Tweener m_Tweener;
+
 		void Awake(){
 			if (m_RigidBody == null) {
 				m_RigidBody = this.GetComponent<Rigidbody>();
@@ -26,10 +28,13 @@ namespace Lime.LudumDare.HiPluto.Components {
         }
 
 		public void Push() {
+			if (m_Tweener!= null) {
+				m_Tweener.Kill();
+			}
 			m_RigidBody.isKinematic = true;
 			m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0, m_RigidBody.velocity.z);
 			Vector3 currentPos = m_RigidBody.position;
-			m_RigidBody.DOMoveY(currentPos.y + m_Height, m_Duration)
+			m_Tweener = m_RigidBody.DOMoveY(currentPos.y + m_Height, m_Duration)
 				.SetLoops(1, LoopType.Yoyo)
 				.SetEase(m_Ease)
 				.OnComplete(OnCompleteCallback);
