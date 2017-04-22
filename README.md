@@ -35,6 +35,7 @@ great news! :D
 [ ] Planets are checkpoints     
 [ ] Respawn on checkpoint    
 [ ] Screen scroll ups with planet, smooth    
+[ ] Horizontal view or Vertical view
 
 #####If time
 [ ] Planets   
@@ -45,7 +46,7 @@ great news! :D
 [ ] Keep falling until a planet saves you (instead of spawning at checkpoint)   
 [ ] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)    
 [ ] Something to avoid, like dangerous astroids  
-[ ] Give planets personality   
+[ ] Give planets personality (make them say fun things when passing buy, give them 2d smileys/faces)
 [ ] music (Forgot to setup ableton with komplete, gonna take a while)    
 
 ### IMPORTANT Checklist ###
