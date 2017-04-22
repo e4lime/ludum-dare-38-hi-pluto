@@ -58,10 +58,10 @@ great news! :D
 [ ] (OPTIONAL) Move content in "GameEngine Data" to your Unity installation to override default C# script
 #### Beginning ####
 [x] Fork this project    
-[ ] Set Company name in "Project Settings > Player Settings" to team name   
-[ ] Set Product name in "Project Settings > Player Settings" to project name   
-[ ] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the unwanted     
-[ ] Change name on the project folder: "unity-template-project-name"
+[x] Set Company name in "Project Settings > Player Settings" to team name   
+[x] Set Product name in "Project Settings > Player Settings" to project name   
+[x] Decide folder structure (!_Game_ByAssetType vs !_Game_ByEntity) by renaming to !_Game and deleting the unwanted     
+[x] Change name on the project folder: "unity-template-project-name"
 
 #### Before Final build ####
 [ ] Backup project  
