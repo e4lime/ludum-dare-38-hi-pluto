@@ -28,12 +28,12 @@ great news! :D
 	[ ] Pluto   
 [ ] JumpObject (stars/astroids/comets or w/e)   
 [ ] Sounds    
- [ ] Bumping on stars   
- [ ] Falling down
+[X] Bumping on stars   
+[ ] Falling down
 
 ##### Mechanics
-[ ] World Earth autojumps on stars/astroids/comets etc (pick one)   
-[ ] Control earth with mousemovement (try keys later if it feels bad)   
+[X] World Earth autojumps on stars/astroids/comets etc (pick one)   
+[X] Control earth with mousemovement (try keys later if it feels bad)   
 [ ] Gain 1 point for each JumpObject   
 [ ] Planets are checkpoints     
 [ ] Respawn on checkpoint    
