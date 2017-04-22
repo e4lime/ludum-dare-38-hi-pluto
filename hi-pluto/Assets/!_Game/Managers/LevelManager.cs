@@ -43,7 +43,6 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				Vector3 newPos = new Vector3(GetRandomX(), currentHeight, m_BottomOfLevel.position.z);
 				jumpObj.transform.position = newPos;
 				m_LatestCreatedJumpObjectLocation = newPos;
-				Debug.Log("create");
 			}
 
 		}

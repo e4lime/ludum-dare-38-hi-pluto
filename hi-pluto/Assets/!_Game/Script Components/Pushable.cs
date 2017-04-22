@@ -29,7 +29,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 
 		public void Push() {
 			if (m_Tweener!= null) {
-				m_Tweener.Kill();
+				m_Tweener.Complete();
 			}
 			m_RigidBody.isKinematic = true;
 			m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0, m_RigidBody.velocity.z);

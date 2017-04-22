@@ -17,7 +17,7 @@ But there are rumours NASA will clasify Pluto as a planet again! Go visit your f
 great news! :D
 
 ##### Stuff/Legend
-[ ] Earth (Player)    
+[x] Earth (Player)    
 [ ] Planets (Checkpoints)   
 	[ ] Earth    
 	[ ] Mars   
@@ -37,8 +37,8 @@ great news! :D
 [ ] Gain 1 point for each JumpObject   
 [ ] Planets are checkpoints     
 [ ] Respawn on checkpoint    
-[ ] Screen scroll ups with planet, smooth    
-[ ] Horizontal view or Vertical view
+[x] Screen scroll ups with planet, smooth    
+[x] Horizontal view or Vertical view
 
 #####If time
 [ ] Planets   
