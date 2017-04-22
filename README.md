@@ -1,4 +1,4 @@
-# Hi pluto! #
+# Hi Pluto! #
 Ludum dare 38. Theme: "A Small World"
 
 ## Summary ##
@@ -37,16 +37,16 @@ great news! :D
 [ ] Screen scroll ups with planet, smooth    
 
 #####If time
-[ ] Planets
-	[ ] Sun
-	[ ] Mercury 
-	[ ] Venus
-	[ ] Astroidbelt (between mars and Jupiter)
-[ ] Keep falling until a planet saves you (instead of spawning at checkpoint)
-[ ] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)
-[ ] Something to avoid, like dangerous astroids
-[ ] Give planets personality
-[ ] music (Forgot to setup ableton with komplete, gonna take a while)
+[ ] Planets   
+	[ ] Sun    
+	[ ] Mercury   
+	[ ] Venus    
+	[ ] Astroidbelt (between mars and Jupiter)    
+[ ] Keep falling until a planet saves you (instead of spawning at checkpoint)   
+[ ] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)    
+[ ] Something to avoid, like dangerous astroids  
+[ ] Give planets personality   
+[ ] music (Forgot to setup ableton with komplete, gonna take a while)    
 
 ### IMPORTANT Checklist ###
 
