@@ -8,6 +8,10 @@ namespace Lime.LudumDare.HiPluto.Components {
 
 		[SerializeField]
 		private float m_Damp = 0.3f;
+
+		[SerializeField]
+		private Vector3 m_Offset;
+
 		#region cache
 		private Transform m_Transform;
 		#endregion
@@ -19,7 +23,8 @@ namespace Lime.LudumDare.HiPluto.Components {
 		}
 
 		void FixedUpdate() {
-			Vector3 targetPos = new Vector3(m_Transform.position.x, m_Target.position.y, m_Transform.position.z);
+			Vector3 targetPos = new Vector3(m_Transform.position.x + m_Offset.x, m_Target.position.y + m_Offset.y, 
+				m_Transform.position.z + m_Offset.z);
 			m_Transform.position = Vector3.SmoothDamp(m_Transform.position, targetPos, ref velocity, m_Damp);
 		}
 	}
