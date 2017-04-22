@@ -2,12 +2,13 @@
 
 namespace Lime.LudumDare.HiPluto.Managers {
     public class LevelManager : MonoBehaviour {
-
+		[SerializeField]
+		private Transform m_Player;
 
 		[SerializeField, Header("Max distance between two jumpObjects, should be tweaked with jumps height")]
 		private float m_JumpObjectDistance = 3.8f;
 		[SerializeField]
-		private float m_MinJumpObjectDistance = 1f;
+		private float m_MinJumpObjectDistance = 0.8f;
 
 		[SerializeField]
 		private Checkpoint[] m_Checkpoints;
@@ -20,7 +21,12 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private Transform m_BottomOfLevel;
 
+		[SerializeField, Header("How much offscreen should be built in advance")]
+		private float m_HighestBuiltOffset = 100f;
 		private Vector3 m_LatestCreatedJumpObjectLocation;
+		private float m_HighestReached = 0f;
+		private float m_HighestBuilt = 0f;
+		
 
 		private void Start() {
 			CreateLevel();
@@ -40,6 +46,26 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				Debug.Log("create");
 			}
 
+		}
+
+		private void Update() {
+			CheckAndUpdateHeightReached();
+
+			if (m_HighestBuilt < m_HighestReached ) {
+
+			}
+
+		}
+
+		private void CheckAndUpdateHeightReached() {
+			float playerHeight = m_Player.transform.position.y;
+			if (playerHeight > m_HighestReached) {
+				m_HighestReached = playerHeight;
+			}
+		}
+
+		private void BuildToReached() {
+			//TODO HERE
 		}
 
 		private float GetRandomX() {
