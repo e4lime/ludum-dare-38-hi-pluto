@@ -42,6 +42,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private float m_HighestReached = 0f;
 		private float m_CurrentBuilt = 0f;
 		private int m_JumpObjectsSinceLastCheckpoint = 0;
+		private bool m_FirstCheckpointHit = false;
 		
 		//TODO Change creaton mode when certain planets area reached
 
@@ -132,6 +133,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		public void CheckpointHit(Checkpoint checkpoint) {
+			m_FirstCheckpointHit = true;
 			m_LatestCheckpointHit = checkpoint.transform.position;
 		}
 
@@ -152,12 +154,18 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 
 			// Place "old checkpoint" under spawn
-			Transform cp = CreateCheckpoint();
-			cp.position = new Vector3(m_LatestCheckpointHit.x, m_LatestCheckpointHit.y - 3f, m_LatestCheckpointHit.z);
+			Transform objUnder = null;
+			if (m_FirstCheckpointHit) {
+				objUnder = CreateCheckpoint();
+			}
+			else {
+				objUnder = CreateRandomJumpObject();
+			}
+			objUnder.position = new Vector3(m_LatestCheckpointHit.x, m_LatestCheckpointHit.y - 3f, m_LatestCheckpointHit.z);
 
 			Transform helpJump = CreateRandomJumpObject();
 			RandomPositionAndRotation(helpJump);
-			helpJump.position = new Vector3(helpJump.position.x, cp.position.y + 3.6f, helpJump.position.z);
+			helpJump.position = new Vector3(helpJump.position.x, objUnder.position.y + 3.6f, helpJump.position.z);
 		}
 	}
 }

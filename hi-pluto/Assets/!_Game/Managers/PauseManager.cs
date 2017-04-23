@@ -5,6 +5,13 @@ using System.Collections;
 namespace Lime.LudumDare.HiPluto.Managers {
     public class PauseManager : MonoBehaviour {
 
+		[SerializeField]
+		private Canvas m_PauseMenu;
+
+
+		[SerializeField]
+		private GameManager m_GameManager;
+
 
 		/// <summary>
 		/// Make object register themself with the PauseManager instead, cant have interfaces in inspector view
@@ -23,6 +30,11 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		public void PauseObjects() {
 			Cursor.visible = true;
 			m_IsPaused = true;
+
+			if (m_GameManager.IsAfterIntro()) {
+				m_PauseMenu.gameObject.SetActive(true);
+			}
+
 			foreach (IPausableObject obj in m_PauseObjects) {
 				obj.OnPause();
 			}
@@ -30,8 +42,10 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 
 		public void UnPauseObjects() {
+			
 			Cursor.visible = false;
 			m_IsPaused = false;
+			m_PauseMenu.gameObject.SetActive(false);
 			foreach (IPausableObject obj in m_PauseObjects) {
 				obj.OnUnPause();
 			}
@@ -55,7 +69,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		private void Update() {
-			if (Input.GetButtonDown("Pause")) {
+
+			if (m_GameManager.IsAfterIntro() && Input.GetButtonDown("Pause")) {
 				m_IsPaused = !m_IsPaused;
 				if (m_IsPaused) {
 					PauseObjects();

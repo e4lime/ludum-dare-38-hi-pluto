@@ -29,6 +29,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private int m_MaxScore;
 		// Height is in levelmanager
 
+		private bool m_AfterIntro = false;
+
 		private void Awake() {
 			Cursor.visible = m_VisibleCursor;
 		}
@@ -52,6 +54,15 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private void Setup(){
 		
 			m_SpawnPointHeight = m_Player.position.y;
+		}
+
+		public bool IsAfterIntro() {
+			return m_AfterIntro;
+		}
+
+		public void StartGame() {
+			m_AfterIntro = true;
+			m_PauseManager.PauseObjects();
 		}
 
 		public void KillPlayer() {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lime.LudumDare.HiPluto.Managers;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -27,7 +28,12 @@ namespace Lime.LudumDare.HiPluto.GUI {
 		[SerializeField]
 		private Transform m_PlanetsIntroParent;
 
+		[SerializeField]
+		private GameManager m_GameManager;
+
 		private void Awake() {
+			m_MainCamera.gameObject.SetActive(false);
+			m_IntroCamera.gameObject.SetActive(true);
 
 
 			foreach (RectTransform rect in m_IntroGUI) {
@@ -38,9 +44,7 @@ namespace Lime.LudumDare.HiPluto.GUI {
 				rect.gameObject.SetActive(false);
 			}
 
-			m_MainCamera.enabled = false;
-			m_IntroCamera.enabled = true;
-
+			
 			if (m_Skipp) {
 				OnStartClick();
 			}
@@ -56,8 +60,11 @@ namespace Lime.LudumDare.HiPluto.GUI {
 				rect.gameObject.SetActive(false);
 			}
 
-			m_MainCamera.enabled = true;
-			m_IntroCamera.enabled = false;
+			m_MainCamera.gameObject.SetActive(true);
+			m_IntroCamera.gameObject.SetActive(false);
+
+			m_GameManager.StartGame();
+
 			Destroy(m_IntroCamera.gameObject);
 			Destroy(m_PlanetsIntroParent.gameObject);
 			Destroy(this.gameObject);
