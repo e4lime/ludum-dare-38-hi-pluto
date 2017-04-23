@@ -18,6 +18,9 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private LevelManager m_LevelManager;
 
 		[SerializeField]
+		private PauseManager m_PauseManager;
+
+		[SerializeField]
 		private FollowTargetUpwards m_GameOverTrigger;
 
 		private float m_SpawnPointHeight;
@@ -25,6 +28,10 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private int m_CurrentScore;
 		private int m_MaxScore;
 		// Height is in levelmanager
+
+		private void Awake() {
+			Cursor.visible = m_VisibleCursor;
+		}
 
 		private void Start() {
 			if (m_Player == null) {
@@ -43,7 +50,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			Setup();
 		}
 		private void Setup(){
-			Cursor.visible = m_VisibleCursor;
+		
 			m_SpawnPointHeight = m_Player.position.y;
 		}
 
@@ -56,6 +63,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 		private IEnumerator NewTry() {
 			yield return new WaitForSeconds(1);
+			m_PauseManager.PauseObjects();
 			RespawnPlayer();
 		}
 	

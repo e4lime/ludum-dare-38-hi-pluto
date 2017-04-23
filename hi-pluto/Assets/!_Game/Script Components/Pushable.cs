@@ -31,12 +31,10 @@ namespace Lime.LudumDare.HiPluto.Components {
 			if (m_RigidBody == null) {
 				m_RigidBody = this.GetComponent<Rigidbody>();
 			}
-        }
-
-		private void Start() {
 			m_PauseManager.RegisterObject(this);
 		}
 
+	
 		public void Push() {
 			if (m_Tweener!= null) {
 				m_Tweener.Complete();
@@ -56,7 +54,6 @@ namespace Lime.LudumDare.HiPluto.Components {
 		}
 
 		void IPausableObject.OnPause() {
-			Debug.Log("PAAUSSEEE Pushable");
 			if (m_Tweener != null) {
 				m_Tweener.Pause();
 			}

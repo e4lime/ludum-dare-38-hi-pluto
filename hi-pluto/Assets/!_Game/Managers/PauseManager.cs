@@ -12,16 +12,26 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private ArrayList m_PauseObjects = new ArrayList();
 
 
+		private bool m_IsPaused = true;
 
-		private bool m_IsPaused = false;
+		private void Start() {
+			if (m_IsPaused) {
+				PauseObjects();
+			}
+		}
 
 		public void PauseObjects() {
+			Cursor.visible = true;
+			m_IsPaused = true;
 			foreach (IPausableObject obj in m_PauseObjects) {
 				obj.OnPause();
 			}
 		}
 
+
 		public void UnPauseObjects() {
+			Cursor.visible = false;
+			m_IsPaused = false;
 			foreach (IPausableObject obj in m_PauseObjects) {
 				obj.OnUnPause();
 			}

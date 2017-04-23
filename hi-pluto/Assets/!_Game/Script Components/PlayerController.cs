@@ -27,6 +27,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 		void Awake() {
 			if (m_PlayerRigidbody == null)
 				m_PlayerRigidbody = this.GetComponent<Rigidbody>();
+			m_PauseManager.RegisterObject(this);
 		}
 
 		private void Start() {
@@ -37,7 +38,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 				Debug.LogError("Somethings wrong...");
 			}
 
-			m_PauseManager.RegisterObject(this);
+		
 		}
 
 		void Update() {
