@@ -12,9 +12,17 @@ Uses Unity 5.6.0.
 ### GDD ###
 
 #### Story
-Your best friend Pluto have been feeling down for a while cause he aint a planet no more :( 
-But there are rumours NASA will clasify Pluto as a planet again! Go visit your friend Pluto and bring him the 
-great news! :D
+Your second best friend (after the moon...) Pluto! Have been feeling down for a while cause NASA 
+told hin he ain't a planet no more :( But there are rumours NASA will change their mind and 
+classify Pluto as a planet once again! Go pay your old friend a visit and bring him the 
+great news! :D   
+
+Use the mouse to climb the astroids until you reach Pluto.
+Hit comets on to create checkpoints. If you fall down you will die and respawn at the last checkpoint.
+
+Keys  
+Mouse movement: Moves earth   
+Space: Pause game   
 
 ##### Stuff/Legend
 [x] Earth (Player)    

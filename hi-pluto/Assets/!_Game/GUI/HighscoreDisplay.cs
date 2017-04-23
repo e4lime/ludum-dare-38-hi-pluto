@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Lime.LudumDare.HiPluto {
+namespace Lime.LudumDare.HiPluto.GUI {
     public class HighscoreDisplay : MonoBehaviour {
 	
-	    #region cache
-		private Transform m_Transform;
-		#endregion
-
+	    
         void Awake(){
-			m_Transform = this.transform;
+			
         }
     }
 }

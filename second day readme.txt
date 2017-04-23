@@ -1,9 +1,6 @@
 
 
-
-Freeze player on start and respawn
-
-
+GUI add "Hello! :D/-<" when clicking on "prepare" 
 
 Score system Points and height
 
