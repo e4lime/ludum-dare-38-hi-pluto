@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
-namespace Lime.LudumDare.HiPluto {
+namespace Lime.LudumDare.HiPluto.Tweens {
     public class CustomAttributeTween : MonoBehaviour {
 	
-	    #region cache
-		private Transform m_Transform;
-		#endregion
 
         void Awake(){
-			m_Transform = this.transform;
+			
         }
     }
 }
