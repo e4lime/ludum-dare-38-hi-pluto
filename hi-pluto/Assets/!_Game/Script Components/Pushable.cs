@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using DG.Tweening;
+using System;
+using Lime.LudumDare.HiPluto.Managers;
 
 namespace Lime.LudumDare.HiPluto.Components {
 
 	/// <summary>
 	/// Pushes the rigidbody in y axis
 	/// </summary>
-    public class Pushable : MonoBehaviour {
+    public class Pushable : MonoBehaviour, IPausableObject {
 	
 	 
 		[SerializeField]
@@ -19,6 +21,10 @@ namespace Lime.LudumDare.HiPluto.Components {
 		[SerializeField]
 		private Ease m_Ease;
 
+
+		[SerializeField]
+		private PauseManager m_PauseManager;
+
 		private Tweener m_Tweener;
 
 		void Awake(){
@@ -27,10 +33,15 @@ namespace Lime.LudumDare.HiPluto.Components {
 			}
         }
 
+		private void Start() {
+			m_PauseManager.RegisterObject(this);
+		}
+
 		public void Push() {
 			if (m_Tweener!= null) {
 				m_Tweener.Complete();
 			}
+
 			m_RigidBody.isKinematic = true;
 			m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0, m_RigidBody.velocity.z);
 			Vector3 currentPos = m_RigidBody.position;
@@ -43,5 +54,18 @@ namespace Lime.LudumDare.HiPluto.Components {
 		private void OnCompleteCallback() {
 			m_RigidBody.isKinematic = false;
 		}
-    }
+
+		void IPausableObject.OnPause() {
+			Debug.Log("PAAUSSEEE Pushable");
+			if (m_Tweener != null) {
+				m_Tweener.Pause();
+			}
+		}
+
+		void IPausableObject.OnUnPause() {
+			if (m_Tweener != null) {
+				m_Tweener.Play();
+			}
+		}
+	}
 }
