@@ -43,6 +43,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private float m_CurrentBuilt = 0f;
 		private int m_JumpObjectsSinceLastCheckpoint = 0;
 		private bool m_FirstCheckpointHit = false;
+
+		private int m_JumpObjectsHit = 0;
 		
 		//TODO Change creaton mode when certain planets area reached
 
@@ -90,6 +92,10 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 
 			}
+		}
+
+		public int GetAltitude() {
+			return (int)m_HighestReached;
 		}
 
 		private void UpdateState() {

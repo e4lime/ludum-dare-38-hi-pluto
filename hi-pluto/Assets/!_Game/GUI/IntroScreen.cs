@@ -21,6 +21,9 @@ namespace Lime.LudumDare.HiPluto.GUI {
 		private RectTransform[] m_InstructionsGUI;
 
 		[SerializeField]
+		private RectTransform[] m_GameGUI;
+
+		[SerializeField]
 		private Camera m_MainCamera;
 		[SerializeField]
 		private Camera m_IntroCamera;
@@ -44,7 +47,11 @@ namespace Lime.LudumDare.HiPluto.GUI {
 				rect.gameObject.SetActive(false);
 			}
 
-			
+			foreach (RectTransform rect in m_GameGUI) {
+				rect.gameObject.SetActive(false);
+			}
+
+
 			if (m_Skipp) {
 				OnStartClick();
 			}
@@ -60,13 +67,21 @@ namespace Lime.LudumDare.HiPluto.GUI {
 				rect.gameObject.SetActive(false);
 			}
 
+
+
 			m_MainCamera.gameObject.SetActive(true);
 			m_IntroCamera.gameObject.SetActive(false);
+
 
 			m_GameManager.StartGame();
 
 			Destroy(m_IntroCamera.gameObject);
 			Destroy(m_PlanetsIntroParent.gameObject);
+
+			foreach (RectTransform rect in m_GameGUI) {
+				rect.gameObject.SetActive(true);
+			}
+
 			Destroy(this.gameObject);
 		}
 

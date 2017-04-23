@@ -68,6 +68,10 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			Debug.LogError("Not yet implemented");
 		}
 
+		public bool IsPaused() {
+			return m_IsPaused;
+		}
+
 		private void Update() {
 
 			if (m_GameManager.IsAfterIntro() && Input.GetButtonDown("Pause")) {

@@ -1,14 +1,19 @@
 
 
-GUI add "Hello! :D/-<" when clicking on "prepare" 
+
 
 Score system Points and height
+
+THE END REACHOING PLUTO TRIGGER!!Q 3.5 h left
 
 SOUND AND MUSIC! AHHHHH
 
 
 Optional:
 
+pauses control 1 sek after unpause
+
+GUI add "Hello! :D/-<" when clicking on "prepare" 
 One "special section" would be nice, like tons of astroids in a row
 
 make camera not go downwards?

@@ -21,12 +21,14 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private PauseManager m_PauseManager;
 
 		[SerializeField]
+		private ScoreManager m_ScoreManager;
+
+		[SerializeField]
 		private FollowTargetUpwards m_GameOverTrigger;
 
 		private float m_SpawnPointHeight;
 
-		private int m_CurrentScore;
-		private int m_MaxScore;
+
 		// Height is in levelmanager
 
 		private bool m_AfterIntro = false;
@@ -67,14 +69,14 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		public void KillPlayer() {
 			m_CameraSmoothFollow.enabled = false;
-			m_MaxScore = m_CurrentScore;
-			m_CurrentScore = 0;
-
 			StartCoroutine(NewTry());
 		}
 		private IEnumerator NewTry() {
 			yield return new WaitForSeconds(1);
 			m_PauseManager.PauseObjects();
+			m_ScoreManager.ResetScore();
+			m_ScoreManager.ResetAltitude();
+			m_LevelManager.ClearAndRebuildFromCheckpoint();
 			RespawnPlayer();
 		}
 	
@@ -84,7 +86,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			m_Player.GetComponent<Rigidbody>().position = m_LevelManager.GetActiveSpawnpoint();
 			m_GameOverTrigger.ResetForRespawn();
 
-			m_LevelManager.ClearAndRebuildFromCheckpoint();
+			
 		}
     }
 }
