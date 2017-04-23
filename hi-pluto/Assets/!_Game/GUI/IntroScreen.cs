@@ -5,6 +5,10 @@ using UnityEngine;
 namespace Lime.LudumDare.HiPluto.GUI {
     public class IntroScreen : MonoBehaviour {
 
+
+		[SerializeField]
+		private bool m_Skipp = false;
+
 		[SerializeField]
 		private float m_WaitTime = 0f;
 
@@ -37,6 +41,9 @@ namespace Lime.LudumDare.HiPluto.GUI {
 			m_MainCamera.enabled = false;
 			m_IntroCamera.enabled = true;
 
+			if (m_Skipp) {
+				OnStartClick();
+			}
 		}
 
 		public void OnPrepareClick() {
