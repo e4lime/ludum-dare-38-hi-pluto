@@ -12,9 +12,18 @@ namespace Lime.LudumDare.HiPluto.Components {
 
 
 		private float m_HeightReached;
+
+
         void Awake(){
 			m_Rigidbody = this.GetComponent<Rigidbody>();
 	     }
+
+		/// <summary>
+		/// Call after playerposition have been reseted
+		/// </summary>
+		public void ResetForRespawn() {
+			m_HeightReached = 0;
+		}
 
 		private void Start() {
 			m_HeightReached = m_Target.position.y;
@@ -27,6 +36,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 				m_Rigidbody.position = new Vector3(m_Rigidbody.position.x, m_HeightReached, m_Rigidbody.position.z);
 			}
 		}
+
 
 	}
 }

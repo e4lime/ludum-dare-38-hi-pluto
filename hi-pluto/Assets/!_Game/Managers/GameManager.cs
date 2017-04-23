@@ -17,6 +17,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private LevelManager m_LevelManager;
 
+		[SerializeField]
+		private FollowTargetUpwards m_GameOverTrigger;
 
 		private float m_SpawnPointHeight;
 
@@ -49,17 +51,21 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			m_CameraSmoothFollow.enabled = false;
 			m_MaxScore = m_CurrentScore;
 			m_CurrentScore = 0;
+
 			StartCoroutine(NewTry());
 		}
 		private IEnumerator NewTry() {
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(1);
 			RespawnPlayer();
 		}
 	
 		private void RespawnPlayer() {
+			m_CameraSmoothFollow.enabled = true;
+			
+			m_Player.GetComponent<Rigidbody>().position = m_LevelManager.GetActiveSpawnpoint();
+			m_GameOverTrigger.ResetForRespawn();
 
+			m_LevelManager.ClearAndRebuildFromCheckpoint();
 		}
-
-		
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Lime.LudumDare.Components;
+using UnityEngine;
 
 namespace Lime.LudumDare.HiPluto.Managers {
 
@@ -36,7 +37,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private Transform m_JumpObjectsParent;
 
 
-
+		private Vector3 m_LatestCheckpointHit;
 		private Vector3 m_LatestCreatedJumpObjectLocation; // Not jused atm, idea was to prevent object to be created to close each other
 		private float m_HighestReached = 0f;
 		private float m_CurrentBuilt = 0f;
@@ -52,6 +53,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		private void Start() {
 			BuildToHeight(m_HighestBuiltOffset);
+			m_LatestCheckpointHit = m_Player.position;
 		}
 
 
@@ -114,7 +116,9 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		private Transform CreateCheckpoint() {
 			m_JumpObjectsSinceLastCheckpoint = 0;
-			return GameObject.Instantiate(m_CheckPointObject, m_JumpObjectsParent).transform;
+			Transform cp = GameObject.Instantiate(m_CheckPointObject, m_JumpObjectsParent).transform;
+			cp.GetComponent<Checkpoint>().SetLevelManager(this);
+			return cp;
 		}
 
 		private float GetNextY() {
@@ -127,7 +131,28 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		}
 
-	
+		public void CheckpointHit(Checkpoint checkpoint) {
+			m_LatestCheckpointHit = checkpoint.transform.position;
+		}
 
+		public Vector3 GetActiveSpawnpoint() {
+			return m_LatestCheckpointHit;
+		}
+
+		public void ClearAndRebuildFromCheckpoint() {
+			m_JumpObjectsSinceLastCheckpoint = 0;
+			m_HighestReached = m_LatestCheckpointHit.y;
+			m_CurrentBuilt = m_LatestCheckpointHit.y;
+
+			foreach (Transform child in m_JumpObjectsParent) {
+				Destroy(child.gameObject);
+			}
+			BuildToHeight(m_HighestReached + m_HighestBuiltOffset);
+
+			// Place "old checkpoint" under spawn
+			Transform cp = CreateCheckpoint();
+			cp.position = new Vector3(m_LatestCheckpointHit.x, m_LatestCheckpointHit.y - 3f, m_LatestCheckpointHit.z);
+
+		}
 	}
 }
