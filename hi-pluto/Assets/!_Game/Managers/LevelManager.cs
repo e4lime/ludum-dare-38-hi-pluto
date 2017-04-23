@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 
 namespace Lime.LudumDare.HiPluto.Managers {
+
+	/// <summary>
+	/// Todo: Destroy jumpobjekt under player
+	/// </summary>
     public class LevelManager : MonoBehaviour {
 		[SerializeField]
 		private Transform m_Player;
@@ -21,30 +25,31 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private Transform m_BottomOfLevel;
 
-		[SerializeField, Header("How much offscreen should be built in advance")]
+		[SerializeField, Header("How much offscreen should be built, also how much that gets built right at Start")]
 		private float m_HighestBuiltOffset = 100f;
-		private Vector3 m_LatestCreatedJumpObjectLocation;
+
+		[SerializeField, Header("Where jumpobjects gets created")]
+		private Transform m_JumpObjectsParent;
+
+
+		private Vector3 m_LatestCreatedJumpObjectLocation; // Not jused atm, idea was to prevent object to be created to close each other
 		private float m_HighestReached = 0f;
 		private float m_CurrentBuilt = 0f;
 		
-
-		private void Start() {
-			//PreCreateLevel();
+		//TODO Change creaton mode when certain planets area reached
+		private enum CreationMode {
+			Random,
+			InARow
 		}
 
-
-		/// <summary>
-		/// Create a chuck of level before on the fly creating
-		/// </summary>
-		private void PreCreateLevel() {
+		private void Start() {
 			BuildToHeight(m_HighestBuiltOffset);
 		}
 
+
 		private void Update() {
 			CheckAndUpdateHeightReached();
-
 			BuildToHeight(m_HighestReached + m_HighestBuiltOffset);
-
 		}
 
 		private void CheckAndUpdateHeightReached() {
@@ -62,7 +67,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[0], transform);
 				Vector3 newPos = new Vector3(GetRandomX(), m_CurrentBuilt, m_BottomOfLevel.position.z);
 				jumpObj.transform.position = newPos;
-				m_LatestCreatedJumpObjectLocation = newPos;
+				jumpObj.transform.parent = m_JumpObjectsParent.parent;
+				m_LatestCreatedJumpObjectLocation = newPos; // Not used atm
 			}
 		}
 
