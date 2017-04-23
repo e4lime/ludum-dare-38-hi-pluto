@@ -25,34 +25,25 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private float m_HighestBuiltOffset = 100f;
 		private Vector3 m_LatestCreatedJumpObjectLocation;
 		private float m_HighestReached = 0f;
-		private float m_HighestBuilt = 0f;
+		private float m_CurrentBuilt = 0f;
 		
 
 		private void Start() {
-			CreateLevel();
+			//PreCreateLevel();
 		}
 
-		private void CreateLevel() {
 
-			float currentHeight = m_BottomOfLevel.transform.position.y;
-			
-			while (currentHeight < 1000f) {
-				float nextY = Random.Range(m_MinJumpObjectDistance, m_JumpObjectDistance);
-				currentHeight += nextY;
-				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[0],transform);
-				Vector3 newPos = new Vector3(GetRandomX(), currentHeight, m_BottomOfLevel.position.z);
-				jumpObj.transform.position = newPos;
-				m_LatestCreatedJumpObjectLocation = newPos;
-			}
-
+		/// <summary>
+		/// Create a chuck of level before on the fly creating
+		/// </summary>
+		private void PreCreateLevel() {
+			BuildToHeight(m_HighestBuiltOffset);
 		}
 
 		private void Update() {
 			CheckAndUpdateHeightReached();
 
-			if (m_HighestBuilt < m_HighestReached ) {
-
-			}
+			BuildToHeight(m_HighestReached + m_HighestBuiltOffset);
 
 		}
 
@@ -63,8 +54,16 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			}
 		}
 
-		private void BuildToReached() {
-			//TODO HERE
+
+		private void BuildToHeight(float height) {
+			while (m_CurrentBuilt < m_HighestReached + m_HighestBuiltOffset) {
+				float nextY = Random.Range(m_MinJumpObjectDistance, m_JumpObjectDistance);
+				m_CurrentBuilt += nextY;
+				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[0], transform);
+				Vector3 newPos = new Vector3(GetRandomX(), m_CurrentBuilt, m_BottomOfLevel.position.z);
+				jumpObj.transform.position = newPos;
+				m_LatestCreatedJumpObjectLocation = newPos;
+			}
 		}
 
 		private float GetRandomX() {
