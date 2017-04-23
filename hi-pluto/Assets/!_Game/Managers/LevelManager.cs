@@ -64,10 +64,11 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			while (m_CurrentBuilt < m_HighestReached + m_HighestBuiltOffset) {
 				float nextY = Random.Range(m_MinJumpObjectDistance, m_JumpObjectDistance);
 				m_CurrentBuilt += nextY;
-				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[0], transform);
+				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[Random.Range(0, m_JumpObjects.Length)], transform);
 				Vector3 newPos = new Vector3(GetRandomX(), m_CurrentBuilt, m_BottomOfLevel.position.z);
 				jumpObj.transform.position = newPos;
 				jumpObj.transform.parent = m_JumpObjectsParent.parent;
+				jumpObj.transform.localRotation = Random.rotationUniform;
 				m_LatestCreatedJumpObjectLocation = newPos; // Not used atm
 			}
 		}

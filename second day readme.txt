@@ -1,10 +1,8 @@
 LevelManager
 (Lvl creator)
 
-Move code to update
-Make sure level is instansiated up to X units above hihest reached
 
-
+make camera not go downwards?
 
 
 
