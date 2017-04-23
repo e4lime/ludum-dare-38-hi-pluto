@@ -43,6 +43,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private float m_CurrentBuilt = 0f;
 		private int m_JumpObjectsSinceLastCheckpoint = 0;
 		private bool m_FirstCheckpointHit = false;
+		private float m_PlayerHeightOffset = 0f; // For score resets
 
 		private int m_JumpObjectsHit = 0;
 		
@@ -66,7 +67,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		private void CheckAndUpdateHeightReached() {
-			float playerHeight = m_Player.transform.position.y;
+			float playerHeight = m_Player.transform.position.y - m_PlayerHeightOffset;
 			if (playerHeight > m_HighestReached) {
 				m_HighestReached = playerHeight;
 			}
@@ -126,6 +127,11 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			Transform cp = GameObject.Instantiate(m_CheckPointObject, m_JumpObjectsParent).transform;
 			cp.GetComponent<Checkpoint>().SetLevelManager(this);
 			return cp;
+		}
+
+		public void ResetAltitude() {
+			m_PlayerHeightOffset = m_HighestReached;
+			this.m_HighestReached = 0;
 		}
 
 		private float GetNextY() {

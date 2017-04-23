@@ -2,16 +2,14 @@
 using UnityEngine;
 
 namespace Lime.LudumDare.HiPluto.Components {
-    public class GameOverTrigger : MonoBehaviour {
-
-		[SerializeField]
-		private Rigidbody m_Player;
+    public class GoalTrigger : MonoBehaviour {
 
 		[SerializeField]
 		private GameManager m_GameManager;
 
-		public void OnTriggerExit() {
-			m_GameManager.KillPlayer(true);
+		private void OnTriggerEnter(Collider other) {
+			m_GameManager.CompleteGame();
+			Destroy(this.gameObject);
 		}
-	}
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Lime.LudumDare.HiPluto.Components;
 using System.Collections;
-
+using UnityEngine.UI;
 namespace Lime.LudumDare.HiPluto.Managers {
     public class GameManager : MonoBehaviour {
 	
@@ -23,6 +23,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private ScoreManager m_ScoreManager;
 
+	
+
 		[SerializeField]
 		private FollowTargetUpwards m_GameOverTrigger;
 
@@ -32,7 +34,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		// Height is in levelmanager
 
 		private bool m_AfterIntro = false;
-
+		private bool m_GameCompleted = false;
 		private void Awake() {
 			Cursor.visible = m_VisibleCursor;
 		}
@@ -62,26 +64,41 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			return m_AfterIntro;
 		}
 
+		public bool IsGameCompleted() {
+			return m_GameCompleted;
+		}
+
+		public void CompleteGame() {
+			m_GameCompleted = true;
+			m_PauseManager.PauseObjects();
+		}
+
 		public void StartGame() {
 			m_AfterIntro = true;
 			m_PauseManager.PauseObjects();
 		}
 
-		public void KillPlayer() {
+		public void KillPlayer(bool respawnPlayer) {
 			m_CameraSmoothFollow.enabled = false;
-			StartCoroutine(NewTry());
+			StartCoroutine(NewTry(respawnPlayer));
 		}
-		private IEnumerator NewTry() {
+		private IEnumerator NewTry(bool respawnPlayer) {
 			yield return new WaitForSeconds(1);
-			m_PauseManager.PauseObjects();
+			if (respawnPlayer) { 
+				m_PauseManager.PauseObjects();
+			}
 			m_ScoreManager.ResetScore();
 			m_ScoreManager.ResetAltitude();
-			m_LevelManager.ClearAndRebuildFromCheckpoint();
-			RespawnPlayer();
+
+			m_LevelManager.ResetAltitude();
+			if (respawnPlayer) {
+				RespawnPlayer();
+				m_LevelManager.ClearAndRebuildFromCheckpoint();
+			}
+			m_CameraSmoothFollow.enabled = true;
 		}
 	
 		private void RespawnPlayer() {
-			m_CameraSmoothFollow.enabled = true;
 			
 			m_Player.GetComponent<Rigidbody>().position = m_LevelManager.GetActiveSpawnpoint();
 			m_GameOverTrigger.ResetForRespawn();
