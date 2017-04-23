@@ -22,11 +22,11 @@ namespace Lime.LudumDare.HiPluto.Components {
 		/// Call after playerposition have been reseted
 		/// </summary>
 		public void ResetForRespawn() {
-			m_HeightReached = 0;
+			m_HeightReached = float.MinValue;
 		}
 
 		private void Start() {
-			m_HeightReached = m_Target.position.y;
+			m_HeightReached = float.MinValue;
 		}
 
 		private void FixedUpdate() {

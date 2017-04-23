@@ -149,10 +149,15 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			}
 			BuildToHeight(m_HighestReached + m_HighestBuiltOffset);
 
+
+
 			// Place "old checkpoint" under spawn
 			Transform cp = CreateCheckpoint();
 			cp.position = new Vector3(m_LatestCheckpointHit.x, m_LatestCheckpointHit.y - 3f, m_LatestCheckpointHit.z);
 
+			Transform helpJump = CreateRandomJumpObject();
+			RandomPositionAndRotation(helpJump);
+			helpJump.position = new Vector3(helpJump.position.x, cp.position.y + 3.6f, helpJump.position.z);
 		}
 	}
 }
