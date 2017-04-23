@@ -13,11 +13,15 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private float m_JumpObjectDistance = 3.8f;
 		[SerializeField]
 		private float m_MinJumpObjectDistance = 0.8f;
+		[SerializeField, Header("How often checkpoints should be created, every X jumpobject")]
+		private int m_CheckpointFrequency = 50;
 
-		[SerializeField]
-		private Checkpoint[] m_Checkpoints;
-		[SerializeField]
+
+		[SerializeField, Header("Comets etc")]
+		private Transform m_CheckPointObject;
+		[SerializeField, Header("Astroids etc")]
 		private GameObject[] m_JumpObjects;
+
 		[SerializeField, Header("Level Size")]
 		private Transform m_LeftEndOfLevel;
 		[SerializeField]
@@ -32,11 +36,15 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private Transform m_JumpObjectsParent;
 
 
+
 		private Vector3 m_LatestCreatedJumpObjectLocation; // Not jused atm, idea was to prevent object to be created to close each other
 		private float m_HighestReached = 0f;
 		private float m_CurrentBuilt = 0f;
+		private int m_JumpObjectsSinceLastCheckpoint = 0;
 		
 		//TODO Change creaton mode when certain planets area reached
+
+		private CreationMode m_State = CreationMode.Random;
 		private enum CreationMode {
 			Random,
 			InARow
@@ -62,15 +70,55 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		private void BuildToHeight(float height) {
 			while (m_CurrentBuilt < m_HighestReached + m_HighestBuiltOffset) {
-				float nextY = Random.Range(m_MinJumpObjectDistance, m_JumpObjectDistance);
+				float nextY = GetNextY();
 				m_CurrentBuilt += nextY;
-				GameObject jumpObj = GameObject.Instantiate(m_JumpObjects[Random.Range(0, m_JumpObjects.Length)], transform);
-				Vector3 newPos = new Vector3(GetRandomX(), m_CurrentBuilt, m_BottomOfLevel.position.z);
-				jumpObj.transform.position = newPos;
-				jumpObj.transform.parent = m_JumpObjectsParent.parent;
-				jumpObj.transform.localRotation = Random.rotationUniform;
-				m_LatestCreatedJumpObjectLocation = newPos; // Not used atm
+
+				Transform objectToCreate = null;
+				if (m_JumpObjectsSinceLastCheckpoint > this.m_CheckpointFrequency) {
+					objectToCreate = CreateCheckpoint();
+				}
+				else {
+					objectToCreate = CreateRandomJumpObject();
+				}
+
+				RandomPositionAndRotation(objectToCreate);
+
+				m_LatestCreatedJumpObjectLocation = objectToCreate.position; // Not used atm
+
+
 			}
+		}
+
+		private void UpdateState() {
+			switch (m_State) {
+				case CreationMode.Random: 
+					
+					break;
+				case CreationMode.InARow:
+
+					break;
+			}
+		}
+
+
+		private Transform CreateRandomJumpObject() {
+			m_JumpObjectsSinceLastCheckpoint++;
+			return GameObject.Instantiate(m_JumpObjects[Random.Range(0, m_JumpObjects.Length)], m_JumpObjectsParent).transform;
+		}
+
+		private void RandomPositionAndRotation(Transform target) {
+			Vector3 newPos = new Vector3(GetRandomX(), m_CurrentBuilt, m_BottomOfLevel.position.z);
+			target.transform.position = newPos;
+			target.transform.localRotation = Random.rotationUniform;
+		}
+
+		private Transform CreateCheckpoint() {
+			m_JumpObjectsSinceLastCheckpoint = 0;
+			return GameObject.Instantiate(m_CheckPointObject, m_JumpObjectsParent).transform;
+		}
+
+		private float GetNextY() {
+			return Random.Range(m_MinJumpObjectDistance, m_JumpObjectDistance);
 		}
 
 		private float GetRandomX() {
@@ -79,13 +127,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		}
 
-		[System.Serializable]
-		public class Checkpoint {
-			public string name;
-			public float height;
-			public GameObject planet;
-			public bool enabled;
-		}
+	
 
 	}
 }

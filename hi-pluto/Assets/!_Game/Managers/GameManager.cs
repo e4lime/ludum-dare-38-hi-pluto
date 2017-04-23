@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Lime.LudumDare.HiPluto.Components;
+using System.Collections;
 
 namespace Lime.LudumDare.HiPluto.Managers {
     public class GameManager : MonoBehaviour {
@@ -9,11 +11,19 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private Transform m_Player;
 
-		#region cache
-		private Rigidbody m_PlayerRigidBody;
-	
+		[SerializeField]
+		private SmoothFollowTarget m_CameraSmoothFollow;
 
-		#endregion endCache
+		[SerializeField]
+		private LevelManager m_LevelManager;
+
+
+		private float m_SpawnPointHeight;
+
+		private int m_CurrentScore;
+		private int m_MaxScore;
+		// Height is in levelmanager
+
 		private void Start() {
 			if (m_Player == null) {
 				Debug.LogWarning("Player isn't set! Finding player");
@@ -29,15 +39,27 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				}
 			}
 			Setup();
-			Cache();
 		}
 		private void Setup(){
 			Cursor.visible = m_VisibleCursor;
+			m_SpawnPointHeight = m_Player.position.y;
 		}
 
-		private void Cache() {
-			//m_PlayerRigidBody = 
+		public void KillPlayer() {
+			m_CameraSmoothFollow.enabled = false;
+			m_MaxScore = m_CurrentScore;
+			m_CurrentScore = 0;
+			StartCoroutine(NewTry());
+		}
+		private IEnumerator NewTry() {
+			yield return new WaitForSeconds(3);
+			RespawnPlayer();
+		}
+	
+		private void RespawnPlayer() {
+
 		}
 
+		
     }
 }
