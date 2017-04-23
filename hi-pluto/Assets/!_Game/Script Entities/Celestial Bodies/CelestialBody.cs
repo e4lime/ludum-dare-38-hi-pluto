@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-using Lime.LudumDare.HiPluto.Other;
-
 namespace Lime.LudumDare.HiPluto.Entities.CelestialBodies {
     public abstract class CelestialBody : MonoBehaviour {
 
