@@ -12,6 +12,9 @@ namespace Lime.LudumDare.HiPluto.Sound {
 		private AudioClip[] m_Astroids;
 
 		[SerializeField]
+		private AudioClip[] m_Fall;
+
+		[SerializeField]
 		private AudioClip m_HitPluto;
 
 		[SerializeField]
@@ -40,6 +43,11 @@ namespace Lime.LudumDare.HiPluto.Sound {
 
 		public void PlayRandomHitPluto() {
 			m_Source.PlayOneShot(m_HitPluto, m_Volume);
+		}
+
+		public void PlayRandomFall() {
+			AudioClip rand = m_Fall[Random.Range(0, m_Fall.Length)];
+			m_Source.PlayOneShot(rand, m_Volume);
 		}
 
 

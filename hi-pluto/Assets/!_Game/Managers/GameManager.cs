@@ -2,6 +2,8 @@
 using Lime.LudumDare.HiPluto.Components;
 using System.Collections;
 using UnityEngine.UI;
+using Lime.LudumDare.HiPluto.Sound;
+
 namespace Lime.LudumDare.HiPluto.Managers {
     public class GameManager : MonoBehaviour {
 	
@@ -80,6 +82,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		public void KillPlayer(bool respawnPlayer) {
 			m_CameraSmoothFollow.enabled = false;
+			PlayRandomClip.INSTANCE.PlayRandomFall();
 			StartCoroutine(NewTry(respawnPlayer));
 		}
 		private IEnumerator NewTry(bool respawnPlayer) {
