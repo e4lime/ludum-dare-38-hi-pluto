@@ -130,8 +130,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		public void ResetAltitude() {
-			m_PlayerHeightOffset = m_HighestReached;
-			this.m_HighestReached = 0;
+			//m_PlayerHeightOffset = m_HighestReached;
+			//this.m_HighestReached = 0;
 		}
 
 		private float GetNextY() {
