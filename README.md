@@ -26,25 +26,25 @@ Space: Pause game
 
 ##### Stuff/Legend
 [x] Earth (Player)    
-[ ] Planets (Checkpoints)   
-	[ ] Earth    
-	[ ] Mars   
-	[ ] Jupiter   
-	[ ] Saturnus  
-	[ ] Uranus    
-	[ ] Neptunus   
-	[ ] Pluto   
-[ ] JumpObject (stars/astroids/comets or w/e)   
-[ ] Sounds    
+[x] Planets (Checkpoints)   
+	[x] Earth    
+	[x] Mars   
+	[x] Jupiter   
+	[x] Saturnus  
+	[x] Uranus    
+	[x] Neptunus   
+	[x] Pluto   
+[x] JumpObject (stars/astroids/comets or w/e)   
+[x] Sounds    
 [X] Bumping on stars   
-[ ] Falling down
+[ x] Falling down
 
 ##### Mechanics
 [X] World Earth autojumps on stars/astroids/comets etc (pick one)   
 [X] Control earth with mousemovement (try keys later if it feels bad)   
-[ ] Gain 1 point for each JumpObject   
-[ ] Planets are checkpoints     
-[ ] Respawn on checkpoint    
+[x] Gain 1 point for each JumpObject   
+[-] Planets are checkpoints     
+[x] Respawn on checkpoint    
 [x] Screen scroll ups with planet, smooth    
 [x] Horizontal view or Vertical view
 
