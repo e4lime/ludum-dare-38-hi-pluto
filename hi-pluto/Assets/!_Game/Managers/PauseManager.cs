@@ -42,7 +42,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				m_GameManager.KillPlayer(false);
 			}
 
-			Debug.Log("ok");
+		
 			if (m_ResetScoreNextPause == false && m_GameManager.IsGameCompleted()) {
 				Debug.Log("yaaay");
 				m_CongratScreen.gameObject.SetActive(true);
