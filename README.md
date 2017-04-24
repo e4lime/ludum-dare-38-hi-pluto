@@ -49,16 +49,16 @@ Space: Pause game
 [x] Horizontal view or Vertical view
 
 #####If time
-[ ] Planets   
-	[ ] Sun    
-	[ ] Mercury   
-	[ ] Venus    
-	[ ] Astroidbelt (between mars and Jupiter)    
-[ ] Keep falling until a planet saves you (instead of spawning at checkpoint)   
-[ ] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)    
-[ ] Something to avoid, like dangerous astroids  
-[ ] Give planets personality (make them say fun things when passing buy, give them 2d smileys/faces)
-[ ] music (Forgot to setup ableton with komplete, gonna take a while)    
+[-] Planets   
+	[-] Sun    
+	[-] Mercury   
+	[-] Venus    
+	[-] Astroidbelt (between mars and Jupiter)    
+[-] Keep falling until a planet saves you (instead of spawning at checkpoint)   
+[-] Fall down past sun and slung around to gain momentum at start (instead of going to mars directly)    
+[-] Something to avoid, like dangerous astroids  
+[-] Give planets personality (make them say fun things when passing buy, give them 2d smileys/faces)
+[-] music (Forgot to setup ableton with komplete, gonna take a while)    
 
 ### IMPORTANT Checklist ###
 

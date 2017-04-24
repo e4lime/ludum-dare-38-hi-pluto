@@ -3,11 +3,12 @@ Code getting messa af... 1.30 min left. Sound and music! Sooo tired :(:()
 
 
 
-SOUND AND MUSIC! AHHHHH
+
+
 
 
 Optional:
-press S TO MUTE
+
 pauses control 1 sek after unpause. NOPE
 
 GUI add "Hello! :D/-<" when clicking on "prepare" . NOPE
