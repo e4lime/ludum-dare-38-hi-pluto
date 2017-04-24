@@ -13,7 +13,7 @@ namespace Lime.LudumDare.HiPluto.Other {
 				if (cb != null && cb.GetAffectByEarthSizeReference()) {
 					float modifier = cb.GetSizeModifier();
 
-					UnityEditor.Undo.RecordObject(cb.transform, "Changed Scale");
+					//UnityEditor.Undo.RecordObject(cb.transform, "Changed Scale");
 					cb.transform.localScale = new Vector3(refScale.x * modifier, refScale.y * modifier, refScale.z * modifier);
 					
 					Debug.Log("Changed scale on: " + cb.GetName() + "(" + modifier +")");
