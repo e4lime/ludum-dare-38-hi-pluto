@@ -59,6 +59,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 		}
 
 		private bool allowQuit = false;
+		private bool quitting = false;
 		void OnApplicationQuit() {
 			if (!allowQuit) {
 				Application.CancelQuit();
@@ -66,7 +67,8 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 				PlayerQuit();
 				OnApplicationQuit();
 			}
-			else {
+			else if (allowQuit && !quitting) {
+				quitting = true;
 				Application.Quit();
 			}
 		}
