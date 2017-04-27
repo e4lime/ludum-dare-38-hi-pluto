@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Lime.LudumDare.HiPluto.Sound {
-    public class PlayRandomClip : MonoBehaviour {
+	public class PlayRandomClip : MonoBehaviour {
 
 		public static PlayRandomClip INSTANCE;
 
@@ -26,10 +26,10 @@ namespace Lime.LudumDare.HiPluto.Sound {
 		[SerializeField]
 		private AudioSource m_Source;
 
-        void Awake(){
+		void Awake() {
 			INSTANCE = this;
 		}
-	
+
 
 		public void PlayRandomCheckpoint() {
 			AudioClip rand = m_Checkpoints[Random.Range(0, m_Checkpoints.Length)];
@@ -56,16 +56,16 @@ namespace Lime.LudumDare.HiPluto.Sound {
 			if (Input.GetButtonDown("Mute")) {
 				m_Mute = !m_Mute;
 				if (m_Mute) {
+					Managers.Analyze.AnalyticsManager.INSTANCE.SendPlayerMutes();
 					m_PrevMuteVolume = m_Volume;
 					m_Volume = 0;
 
 				}
-				else { 
+				else {
+					Managers.Analyze.AnalyticsManager.INSTANCE.SendPlayerUnMutes();
 					m_Volume = m_PrevMuteVolume;
 				}
 			}
-
-			
 		}
 	}
 }

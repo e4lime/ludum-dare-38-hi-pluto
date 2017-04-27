@@ -3,7 +3,7 @@ using Lime.LudumDare.HiPluto.Components;
 using System.Collections;
 
 namespace Lime.LudumDare.HiPluto.Managers {
-    public class PauseManager : MonoBehaviour {
+	public class PauseManager : MonoBehaviour {
 
 		[SerializeField]
 		private Canvas m_PauseMenu;
@@ -18,7 +18,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private Canvas m_CongratScreen;
 
 
-		
+
 
 		/// <summary>
 		/// Make object register themself with the PauseManager instead, cant have interfaces in inspector view
@@ -44,7 +44,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 				m_GameManager.KillPlayer(false);
 			}
 
-		
+
 			if (m_ResetScoreNextPause == false && m_GameManager.IsGameCompleted()) {
 				m_CongratScreen.gameObject.SetActive(true);
 			}
@@ -61,11 +61,11 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 
 		public void UnPauseObjects() {
-			
+
 			Cursor.visible = false;
 			m_IsPaused = false;
 
-			
+
 			if (m_ResetScoreNextPause == false && m_GameManager.IsGameCompleted()) {
 				m_CongratScreen.gameObject.SetActive(false);
 				m_ResetScoreNextPause = true;
@@ -103,6 +103,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			if (m_GameManager.IsAfterIntro() && Input.GetButtonDown("Pause")) {
 				m_IsPaused = !m_IsPaused;
 				if (m_IsPaused) {
+					Analyze.AnalyticsManager.INSTANCE.PlayerHitPause();
 					PauseObjects();
 				}
 				else {

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using Lime.LudumDare.HiPluto.Sound;
 
 namespace Lime.LudumDare.HiPluto.Managers {
-    public class GameManager : MonoBehaviour {
-	
+	public class GameManager : MonoBehaviour {
+
 		[SerializeField]
 		private bool m_VisibleCursor;
 
@@ -25,11 +25,10 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private ScoreManager m_ScoreManager;
 
-	
+
 
 		[SerializeField]
 		private FollowTargetUpwards m_GameOverTrigger;
-
 
 
 		// Height is in levelmanager
@@ -54,7 +53,9 @@ namespace Lime.LudumDare.HiPluto.Managers {
 					m_Player = playerGo.transform;
 				}
 			}
+			
 		}
+		
 
 		public bool IsAfterIntro() {
 			return m_AfterIntro;
@@ -75,18 +76,18 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		/// BUG: Is called twice after hitting pluto
-		public void KillPlayer(bool respawnPlayer) { 
+		public void KillPlayer(bool respawnPlayer) {
 			m_CameraSmoothFollow.enabled = false;
 			PlayRandomClip.INSTANCE.PlayRandomFall();
-
-			
-
 			StartCoroutine(NewTry(respawnPlayer));
 		}
 		private IEnumerator NewTry(bool respawnPlayer) {
 			yield return new WaitForSeconds(1);
-			if (respawnPlayer) { 
+			if (respawnPlayer) {
 				m_PauseManager.PauseObjects();
+				// Placed here instead of in Killplayer case of the double call to KillPlayer bug
+				// And to avoid getting called when player hits the pause key
+				Analyze.AnalyticsManager.INSTANCE.PlayerDie();
 			}
 			m_ScoreManager.ResetScore();
 			m_ScoreManager.ResetAltitude();
@@ -98,13 +99,13 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			}
 			m_CameraSmoothFollow.enabled = true;
 		}
-	
+
 		private void RespawnPlayer() {
-			
+
 			m_Player.GetComponent<Rigidbody>().position = m_LevelManager.GetActiveSpawnpoint();
 			m_GameOverTrigger.ResetForRespawn();
 
-			
+
 		}
-    }
+	}
 }
