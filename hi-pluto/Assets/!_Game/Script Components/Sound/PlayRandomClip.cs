@@ -60,7 +60,7 @@ namespace Lime.LudumDare.HiPluto.Sound {
 					m_Volume = 0;
 
 				}
-				else {
+				else { 
 					m_Volume = m_PrevMuteVolume;
 				}
 			}

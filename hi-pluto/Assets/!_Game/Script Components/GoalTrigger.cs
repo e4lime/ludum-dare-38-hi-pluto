@@ -9,7 +9,8 @@ namespace Lime.LudumDare.HiPluto.Components {
 
 		private void OnTriggerEnter(Collider other) {
 			m_GameManager.CompleteGame();
-			Destroy(this.gameObject);
 		}
-    }
+
+		
+	}
 }

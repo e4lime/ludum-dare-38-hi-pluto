@@ -14,6 +14,15 @@ namespace Lime.LudumDare.HiPluto.Components {
 		[SerializeField]
 		private Transform m_RightLimit;
 
+
+		/// <summary>
+		/// Added after deadline. To fix game not working on 4:3
+		/// </summary>
+		[SerializeField]
+		private Transform m_43LeftLimit;
+		[SerializeField]
+		private Transform m_43RightLimit;
+
 		[SerializeField]
 		private PauseManager m_PauseManager;
 
@@ -28,6 +37,15 @@ namespace Lime.LudumDare.HiPluto.Components {
 			if (m_PlayerRigidbody == null)
 				m_PlayerRigidbody = this.GetComponent<Rigidbody>();
 			m_PauseManager.RegisterObject(this);
+
+			/// <summary>
+			/// Added after deadline. To fix game not working on 4:3
+			/// </summary>
+			// If 4:3
+			if (Camera.main.aspect <= 1.4) {
+				m_LeftLimit = m_43LeftLimit;
+				m_RightLimit = m_43RightLimit;
+			}
 		}
 
 		private void Start() {

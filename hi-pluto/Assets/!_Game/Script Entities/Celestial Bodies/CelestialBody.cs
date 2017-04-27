@@ -14,13 +14,6 @@ namespace Lime.LudumDare.HiPluto.Entities.CelestialBodies {
 		public const float PLUTO = 0.18f;
 
 
-		#region cache
-		private Transform m_Transform;
-		#endregion
-
-		void Awake() {
-			m_Transform = this.transform;
-		}
 
 	
 		[SerializeField]

@@ -8,7 +8,6 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private Canvas m_PauseMenu;
 
-
 		[SerializeField]
 		private GameManager m_GameManager;
 
@@ -17,6 +16,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		[SerializeField]
 		private Canvas m_CongratScreen;
+
 
 		
 
@@ -28,6 +28,8 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		private bool m_IsPaused = true;
 		private bool m_ResetScoreNextPause = false;
+
+
 		private void Start() {
 			if (m_IsPaused) {
 				PauseObjects();
@@ -44,7 +46,6 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 		
 			if (m_ResetScoreNextPause == false && m_GameManager.IsGameCompleted()) {
-				Debug.Log("yaaay");
 				m_CongratScreen.gameObject.SetActive(true);
 			}
 

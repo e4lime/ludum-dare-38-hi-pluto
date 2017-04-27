@@ -30,7 +30,6 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private FollowTargetUpwards m_GameOverTrigger;
 
-		private float m_SpawnPointHeight;
 
 
 		// Height is in levelmanager
@@ -55,11 +54,6 @@ namespace Lime.LudumDare.HiPluto.Managers {
 					m_Player = playerGo.transform;
 				}
 			}
-			Setup();
-		}
-		private void Setup(){
-		
-			m_SpawnPointHeight = m_Player.position.y;
 		}
 
 		public bool IsAfterIntro() {
@@ -80,9 +74,13 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			m_PauseManager.PauseObjects();
 		}
 
-		public void KillPlayer(bool respawnPlayer) {
+		/// BUG: Is called twice after hitting pluto
+		public void KillPlayer(bool respawnPlayer) { 
 			m_CameraSmoothFollow.enabled = false;
 			PlayRandomClip.INSTANCE.PlayRandomFall();
+
+			
+
 			StartCoroutine(NewTry(respawnPlayer));
 		}
 		private IEnumerator NewTry(bool respawnPlayer) {

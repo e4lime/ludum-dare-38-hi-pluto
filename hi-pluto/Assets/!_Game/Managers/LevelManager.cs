@@ -30,6 +30,17 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		[SerializeField]
 		private Transform m_BottomOfLevel;
 
+
+		/// <summary>
+		/// Added after deadline. To fix game not working on 4:3
+		/// </summary>
+		[SerializeField, Header("For 4:3")]
+		private Transform m_43LeftEndOfLevel;
+		[SerializeField]
+		private Transform m_43RightEndOfLevel;
+
+
+
 		[SerializeField, Header("How much offscreen should be built, also how much that gets built right at Start")]
 		private float m_HighestBuiltOffset = 100f;
 
@@ -38,14 +49,14 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 
 		private Vector3 m_LatestCheckpointHit;
-		private Vector3 m_LatestCreatedJumpObjectLocation; // Not jused atm, idea was to prevent object to be created to close each other
+		
 		private float m_HighestReached = 0f;
 		private float m_CurrentBuilt = 0f;
 		private int m_JumpObjectsSinceLastCheckpoint = 0;
 		private bool m_FirstCheckpointHit = false;
 		private float m_PlayerHeightOffset = 0f; // For score resets
-
-		private int m_JumpObjectsHit = 0;
+	
+		
 		
 		//TODO Change creaton mode when certain planets area reached
 
@@ -53,6 +64,20 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private enum CreationMode {
 			Random,
 			InARow
+		}
+		
+
+		/// <summary>
+		/// Added after deadline. To fix game not working on 4:3
+		/// </summary>
+		private void Awake() {
+
+			// If 4:3
+			if (Camera.main.aspect <= 1.4) {
+				m_LeftEndOfLevel = m_43LeftEndOfLevel;
+				m_RightEndOfLevel = m_43RightEndOfLevel;
+			}
+
 		}
 
 		private void Start() {
@@ -89,7 +114,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 				RandomPositionAndRotation(objectToCreate);
 
-				m_LatestCreatedJumpObjectLocation = objectToCreate.position; // Not used atm
+			
 
 
 			}
