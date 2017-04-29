@@ -1,13 +1,39 @@
-NOTES FOR THE POSTMORTEM LATER
 
 The Good
-Took a walk while struggling with ideas
+Struggled with getting and got crazy anxiety. Took a walk and ideas started 
+to pop up! Do physical work!
 
+A completed game!
 
 
 The Bad
-3D. I need to get used to blender. Used alot of maya a few years ago 
-Havn't done anything in unity for a while, felt rusty.
+
+3D. I need to learn Blender. Used alot of maya a few years ago but i have no idea what im doing in blender.
+
+Do something in unity a week before the competition so you don't feel so rusty.
+
+Stop making silly tools! They always get more complicated than u think. Just do it in the editor. 
+Ure not sure u gonna use the result of the tools anyway
+
+Stop checking inputed variables in editor. It only takes time and if it breaks just check the code. You 
+are the designer and the coder remember.
+
+Think of 4:3 resolutions, game broke on 4:3 displays
+
+Stop with whatever you are doing 1h before deadline and tweak the game design instead! 
+Maybe have a "design hour" ~6 hours before deadline so you dont have to panic 1h before deadline. Maybe 
+a design hour when you wake up the second day so you dont have to panic ~6 hours before deadline...
+
+Actually just have a deadline 6h before deadline and use the remaining 6h to juice it up.
+
+Didn't have time to play with music
+
+Use fonts, you are allowed to
 
 The ugly
 Too similar to winterbells 
+
+Chaotic code mess the last few hours
+
+
+
