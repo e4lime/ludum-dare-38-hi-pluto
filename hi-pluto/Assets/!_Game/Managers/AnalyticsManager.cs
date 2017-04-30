@@ -34,7 +34,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 		}
 
 		public void PlayerQuit() {
-			SendData("player_quits");
+			SendData("player_quits", true);
 		}
 
 		public void PlayerHitPause() {
@@ -69,9 +69,6 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 		// Does not work in WebGL
 #if UNITY_STANDALONE && !UNITY_EDITOR
 
-		void Start() {
-			Debug.Log("Start in UNITY_STANDALONE");
-		}
 		private bool allowQuit = false;
 		private bool quitting = false;
 		void OnApplicationQuit() {
