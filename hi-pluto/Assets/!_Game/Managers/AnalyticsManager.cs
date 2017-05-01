@@ -67,7 +67,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 		}
 
 		// Does not work in WebGL
-#if UNITY_STANDALONE && !UNITY_EDITOR
+#if UNITY_STANDALONE
 
 		private bool allowQuit = false;
 		private bool quitting = false;
@@ -88,7 +88,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 		}
 #endif
 
-#if !UNITY_EDITOR
+
 		/// <summary>
 		/// Earlier solution:
 		/// - Application Lost Focus Does not work when closing the webgl game. lost focus gets called but data doesnt get sent
@@ -140,10 +140,14 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 				
 			}
 		}
-#endif
+
 		
 		private void SendData(string eventName, bool sendPlutoHit) {
-#if !UNITY_EDITOR
+
+#if UNITY_EDITOR
+			Debug.Log(eventName);
+#endif
+
 			int score = m_ScoreManager.GetScore();
 			if (score > m_HighestScoreReached) {
 				m_HighestScoreReached = score;
@@ -176,7 +180,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 			dict["sound_muted"] = muted;
 
 			Analytics.CustomEvent(eventName, dict);
-#endif
+
 		}
 
 
