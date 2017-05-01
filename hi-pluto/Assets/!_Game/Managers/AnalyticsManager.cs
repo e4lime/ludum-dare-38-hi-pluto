@@ -47,12 +47,15 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 
 		bool m_MutedEventSent = false;
 		public void SendPlayerMutes() {
-
 			if (!m_MutedEventSent) {
+				string muteName = "mutes_sound";
+#if UNITY_EDITOR
+				Debug.Log(muteName);
+#endif
 				int height = m_ScoreManager.GetAltitude();
 				m_PlayerMutesDict["time_passed"] = Time.realtimeSinceStartup;
 				m_PlayerMutesDict["altitude"] = height;
-				Analytics.CustomEvent("mutes_sound", m_PlayerMutesDict);
+				Analytics.CustomEvent(muteName, m_PlayerMutesDict);
 				m_Muted = true;
 				m_MutedEventSent = true;
 			}
@@ -152,7 +155,7 @@ namespace Lime.LudumDare.HiPluto.Managers.Analyze {
 			if (score > m_HighestScoreReached) {
 				m_HighestScoreReached = score;
 			}
-
+			
 
 
 			int highestScoreReached = m_HighestScoreReached;    // Sent
