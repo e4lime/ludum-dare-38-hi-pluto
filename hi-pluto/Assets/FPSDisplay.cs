@@ -5,7 +5,7 @@ namespace ThirdParty.Debug {
 	public class FPSDisplay : MonoBehaviour {
 
 
-#if DEVELOPEMET_BUILD
+#if DEVELOPMENT_BUILD
 		float deltaTime = 0.0f;
 		void Update() {
 			deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
