@@ -81,6 +81,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		private void Start() {
+			m_CurrentBuilt = m_BottomOfLevel.position.y;
 			BuildToHeight(m_HighestBuiltOffset);
 			m_LatestCheckpointHit = m_Player.position;
 		}
