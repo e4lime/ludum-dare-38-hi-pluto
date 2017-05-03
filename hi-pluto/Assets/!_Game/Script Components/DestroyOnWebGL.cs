@@ -9,6 +9,6 @@ namespace Lime.LudumDare.HiPluto {
 		void LateUpdate(){
 			Destroy(this.gameObject);
         }
-    }
 #endif
+	}
 }
