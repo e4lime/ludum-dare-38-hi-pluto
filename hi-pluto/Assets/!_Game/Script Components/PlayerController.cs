@@ -31,6 +31,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 
 		private bool m_Paused = false;
 
+		private Pushable m_Pushable;
 		
 
 		void Awake() {
@@ -46,6 +47,8 @@ namespace Lime.LudumDare.HiPluto.Components {
 				m_LeftLimit = m_43LeftLimit;
 				m_RightLimit = m_43RightLimit;
 			}
+
+			m_Pushable = GetComponent<Pushable>();
 		}
 
 		private void Start() {
@@ -71,7 +74,14 @@ namespace Lime.LudumDare.HiPluto.Components {
 			else if (desiredX > m_RightLimitX) {
 				desiredX = m_RightLimitX;
 			}
-			m_PlayerRigidbody.position = new Vector3(desiredX, m_PlayerRigidbody.position.y, m_PlayerRigidbody.position.z);
+
+			if (m_Pushable.IsTweening()) {
+				m_PlayerRigidbody.position = new Vector3(desiredX, m_PlayerRigidbody.position.y, m_PlayerRigidbody.position.z);
+			}
+			else {
+				m_PlayerRigidbody.MovePosition(new Vector3(desiredX, m_PlayerRigidbody.position.y, m_PlayerRigidbody.position.z));
+			}
+			
 		}
 
 		public void OnPause() {

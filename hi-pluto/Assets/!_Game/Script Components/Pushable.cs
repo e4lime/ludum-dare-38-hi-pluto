@@ -49,6 +49,12 @@ namespace Lime.LudumDare.HiPluto.Components {
 				.OnComplete(OnCompleteCallback);
 		}
 
+		public bool IsTweening() {
+			if (m_Tweener != null && m_Tweener.IsPlaying())
+				return true;
+			return false;
+		}
+
 		private void OnCompleteCallback() {
 			m_RigidBody.isKinematic = false;
 		}

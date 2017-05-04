@@ -22,7 +22,7 @@ namespace Lime.LudumDare.HiPluto.Components {
 			m_Transform = this.transform;
 		}
 
-		void FixedUpdate() {
+		void LateUpdate() {
 			Vector3 targetPos = new Vector3(m_Transform.position.x + m_Offset.x, m_Target.position.y + m_Offset.y, 
 				m_Transform.position.z + m_Offset.z);
 			m_Transform.position = Vector3.SmoothDamp(m_Transform.position, targetPos, ref velocity, m_Damp);

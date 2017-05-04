@@ -56,6 +56,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private bool m_FirstCheckpointHit = false;
 		private float m_PlayerHeightOffset = 0f; // For score resets
 
+		private bool m_FirstBuiltAfterReset = false;
 
 		/// <summary>
 		/// Added to reduce lag on webgl build
@@ -197,6 +198,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		}
 
 		public void ClearAndRebuildFromCheckpoint() {
+			m_FirstBuiltAfterReset = false;
 			m_JumpObjectsSinceLastCheckpoint = 0;
 			m_HighestReached = m_LatestCheckpointHit.y;
 			m_CurrentBuilt = m_LatestCheckpointHit.y;
@@ -220,7 +222,7 @@ namespace Lime.LudumDare.HiPluto.Managers {
 
 			Transform helpJump = CreateRandomJumpObject();
 			RandomPositionAndRotation(helpJump);
-			helpJump.position = new Vector3(helpJump.position.x, objUnder.position.y + 3.6f, helpJump.position.z);
+			helpJump.position = new Vector3(helpJump.position.x, objUnder.position.y + 4f, helpJump.position.z);
 		}
 	}
 }
