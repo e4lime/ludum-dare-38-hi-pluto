@@ -55,8 +55,13 @@ namespace Lime.LudumDare.HiPluto.Managers {
 		private int m_JumpObjectsSinceLastCheckpoint = 0;
 		private bool m_FirstCheckpointHit = false;
 		private float m_PlayerHeightOffset = 0f; // For score resets
-	
-		
+
+
+		/// <summary>
+		/// Added to reduce lag on webgl build
+		/// </summary>
+		private Transform m_TopJumpChild = null; // Should be the one furthest down
+		private float m_DistanceWhenToDelete = -12f;
 		
 		//TODO Change creaton mode when certain planets area reached
 
@@ -84,12 +89,24 @@ namespace Lime.LudumDare.HiPluto.Managers {
 			m_CurrentBuilt = m_BottomOfLevel.position.y;
 			BuildToHeight(m_HighestBuiltOffset);
 			m_LatestCheckpointHit = m_Player.position;
+			InvokeRepeating("_TryDeleteJumpObjectFurthestAway", 1, 1);
 		}
+
 
 
 		private void Update() {
 			CheckAndUpdateHeightReached();
 			BuildToHeight(m_HighestReached + m_HighestBuiltOffset);
+		}
+
+		private void _TryDeleteJumpObjectFurthestAway() {
+			if (m_TopJumpChild == null && m_JumpObjectsParent.childCount > 0) {
+				m_TopJumpChild = m_JumpObjectsParent.GetChild(0);
+			}
+
+			if (m_TopJumpChild != null && (m_TopJumpChild.transform.position.y - m_Player.position.y) < m_DistanceWhenToDelete) {
+				Destroy(m_TopJumpChild.gameObject);
+			}
 		}
 
 		private void CheckAndUpdateHeightReached() {
