@@ -9,8 +9,7 @@ as Earth jumping upwards on asteroids to reach Pluto. Control Earth's
 horizontal movement with your mouse and aim for the asteroids and the 
 golden comet checkpoints while you avoiddropping out of the screen.
                     
-Uses Unity 5.6.0. with DoTween and Unity Analytics. 
-
+Uses Unity 5.6.0. with DoTween and Unity Analytics.  
 Graphics were made with Blender and Krita.
 
 ### GDD ###
