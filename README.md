@@ -10,6 +10,7 @@ horizontal movement with your mouse and aim for the asteroids and the
 golden comet checkpoints while you avoiddropping out of the screen.
                     
 Uses Unity 5.6.0. with DoTween and Unity Analytics.
+Graphics were made with Blender and Krita.
 
 ### GDD ###
 ![Early design](skiss_1.png)
