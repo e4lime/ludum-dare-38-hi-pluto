@@ -1,17 +1,22 @@
-# Imported From Bitbucket
-
 # Hi Pluto! #
 Ludum dare 38. Theme: "A Small World"
+https://ldjam.com/events/ludum-dare/38/hi-pluto
 
 ## Summary ##
+"Hi Pluto!" is a classic infinite vertical jumping game where you play 
+as Earth jumping upwards on asteroids to reach Pluto. Control Earth's 
+horizontal movement with your mouse and aim for the asteroids and the 
+golden comet checkpoints while you avoiddropping out of the screen.
+                    
+Uses Unity 5.6.0. with DoTween and Unity Analytocs.
 
-Jump game, similar to Rabbit jumping on stars (Winterbells).   
-Uses Unity 5.6.0.   
 
-![Alt text](skiss_1.png)
+
+
 
 
 ### GDD ###
+![Early design](skiss_1.png)
 
 #### Story
 Your second best friend (after the moon...) Pluto! Have been feeling down for a while cause NASA 
