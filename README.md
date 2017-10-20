@@ -85,10 +85,10 @@ Space: Pause game
 
 --------
 
-##Thirdparty Libraries and tools##
+## Thirdparty Libraries and tools
 Resides in the Unity Project folder   
 
-###DOTween###
+### DOTween
 Animation/Tween library.  
 Free   
 https://www.assetstore.unity3d.com/en/#!/content/27676  
