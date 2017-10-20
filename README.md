@@ -1,6 +1,7 @@
 # Hi Pluto! #
 Ludum dare 38. Theme: "A Small World"
-https://ldjam.com/events/ludum-dare/38/hi-pluto
+
+Game page: https://ldjam.com/events/ludum-dare/38/hi-pluto
 
 ## Summary ##
 "Hi Pluto!" is a classic infinite vertical jumping game where you play 
