@@ -22,8 +22,8 @@ namespace E4lime.LudumDare.Ld38 {
 		private string[] m_TextLinesToUse;
 
 		void Start() {
-			
-#if UNITY_STANDALONE || UNITY_EDITOR
+
+#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_WEBGL
 			m_TextLinesToUse = m_StandaloneTextLines;
 #endif
 
